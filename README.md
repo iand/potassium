@@ -4,7 +4,13 @@ A convenient PHP library for working with [Kasabi](http://kasabi.com/)
 
 Overview
 --------
-TBA
+This is a very early stage library for working with [Kasabi](http://kasabi.com/) APIs. When I say early stage, 
+I mean I've only used it once (for my [English Heritage demo](http://iandavis.com/2011/english-heritage/)). 
+
+The design philosophy of Potassium is to make things simple and get out of the way quickly. Potassium will
+default to sensible values, guess common patterns, simplify overcomplex formats and try to return PHP native
+types whenever possible. At the same time it allows you to tweak its behaviour and get access to the full
+response from Kasabi so you can diagnose problems or program with the raw formats if you need to.
 
 Examples
 --------
