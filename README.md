@@ -12,6 +12,8 @@ default to sensible values, guess common patterns, simplify overcomplex formats 
 types whenever possible. At the same time it allows you to tweak its behaviour and get access to the full
 response from Kasabi so you can diagnose problems or program with the raw formats if you need to.
 
+Potassium has no dependencies but does require PHP's [cURL](http://php.net/manual/en/book.curl.php) module.
+
 Examples
 --------
 Create a new instance
