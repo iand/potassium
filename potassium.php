@@ -88,39 +88,13 @@ if (!function_exists('http_get')) {
     /**
      * @see http://bugs.typo3.org/view.php?id=4292
      */
-
-    if ( !(ini_get('open_basedir')) && ini_get('safe_mode') !== 'On')
-    {
-        curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, TRUE);
+    if ( !(ini_get('open_basedir')) && ini_get('safe_mode') !== 'On') {
+      curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, TRUE);
     }
 
     curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 5);
     curl_setopt($curl_handle, CURLOPT_TIMEOUT, isset($options['timeout']) ? $options['timeout'] : 600);
     curl_setopt($curl_handle, CURLOPT_HEADER, 1);
-
-/*
-    if ( !empty( $request->_proxy ) ) {
-      curl_setopt($curl_handle, CURLOPT_PROXY, $request->_proxy );
-    }
-*/
-
-/*
-    switch($request->method) {
-      case 'GET'  : break;
-      case 'POST' : curl_setopt($curl_handle, CURLOPT_POST, 1); break;
-      default     : curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST,strtoupper($request->method));
-    }
-*/
-
-/*
-    if ($request->body != null) {
-      curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $request->body);
-    }
-*/
-
-/*
-    curl_setopt($curl_handle, CURLOPT_HTTPHEADER, $request->get_headers() );
-*/
 
     $data = curl_exec($curl_handle);
     curl_close($curl_handle);
