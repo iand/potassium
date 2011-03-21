@@ -10,33 +10,33 @@ Examples
 --------
 Create a new instance
 
-  $kasabi = new Potassium($api_key);
+    $kasabi = new Potassium($api_key);
 
 Perform a SPARQL select:
 
-  $results = $kasabi->get('sparql-endpoint-foo', array('query'=>'select ?name ?age where {...'));
+    $results = $kasabi->get('sparql-endpoint-foo', array('query'=>'select ?name ?age where {...'));
 
 SPARQL select results are automatically simplified into a nested array: 
 
-  [ {'name' => 'Rod', 'age' => 25}, {'name' => 'Jane', 'age' => 23}, {'name' => 'Freddy', 'age' => 30} ]
+    [ {'name' => 'Rod', 'age' => 25}, {'name' => 'Jane', 'age' => 23}, {'name' => 'Freddy', 'age' => 30} ]
 
 Full URI of Kasabi API is optional:
 
-  $results = $kasabi->get('http://api.kasabi.com/api/sparql-endpoint-foo', array('query'=>'select...'));
+    $results = $kasabi->get('http://api.kasabi.com/api/sparql-endpoint-foo', array('query'=>'select...'));
   
 Follow the happy path:
   
-  $results = $kasabi->get('sparql-endpoint-foo', array('query'=>$query));
-  if ($results) {
-    // do something amazing...
-  }
-  else {
-    $response = $kasabi->last_response();
-    print "Failed with response: " . $response->responseCode;
-    print "Body: " . $response->body;
-    print "Headers: \n";
-    print_r($response->headers);
-  }
+    $results = $kasabi->get('sparql-endpoint-foo', array('query'=>$query));
+    if ($results) {
+      // do something amazing...
+    }
+    else {
+      $response = $kasabi->last_response();
+      print "Failed with response: " . $response->responseCode;
+      print "Body: " . $response->body;
+      print "Headers: \n";
+      print_r($response->headers);
+    }
 
 
 Licence
