@@ -22,16 +22,12 @@ Create a new instance
 
 Perform a SPARQL select:
 
-    $results = $kasabi->get('sparql-endpoint-foo', array('query'=>'select ?name ?age where {...'));
+    $results = $kasabi->get('http://api.kasabi.com/api/sparql-endpoint-foo', array('query'=>'select ?name ?age where {...'));
 
 SPARQL select results are automatically simplified into a nested array: 
 
     [ {'name' => 'Rod', 'age' => 25}, {'name' => 'Jane', 'age' => 23}, {'name' => 'Freddy', 'age' => 30} ]
-
-Full URI of Kasabi API is optional:
-
-    $results = $kasabi->get('http://api.kasabi.com/api/sparql-endpoint-foo', array('query'=>'select...'));
-  
+ 
 Follow the happy path:
   
     $results = $kasabi->get('sparql-endpoint-foo', array('query'=>$query));
@@ -45,6 +41,10 @@ Follow the happy path:
       print "Headers: \n";
       print_r($response->headers);
     }
+
+Changes
+-------
+2012-01-25: removed option to use short names for APIs, you now need to specify the full URI
 
 
 Licence

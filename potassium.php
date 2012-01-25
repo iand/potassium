@@ -12,12 +12,9 @@ class Potassium {
   
   // Call an API and return the results in the most useful format possible
   // @return null if the request was not successful, an array or string otherwise
-  function get($api_name_or_uri, $params = array(), $output='json') {
-    if (strpos($api_name_or_uri, 'http://api.kasabi.com/api/') !== 0) {
-      $api_name_or_uri = 'http://api.kasabi.com/api/' . $api_name_or_uri;
-    }
-    
-    $uri = $api_name_or_uri . '?apikey=' . urlencode($this->_apikey) . '&output=' . urlencode($output);
+  function get($api_uri, $params = array(), $output='json') {
+   
+    $uri = $api_uri . '?apikey=' . urlencode($this->_apikey) . '&output=' . urlencode($output);
     foreach ($params as $k => $v) {
       if (is_array($v)) $v = join(',', $v);
       $uri .= '&' . $k . '=' . urlencode($v);
